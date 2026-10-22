@@ -4,11 +4,11 @@ const port=3000
 const {testConnection}=require('./utils/db')
 const user=require('./models/user.model')
 const userrouter=require('./routers/user.router')
+const cookiesparser=require('cookies-parser')
+require('dotenv').config()
+app.use(cookiesparser())
 
-
-const bodyparser=require('body-parser')
-
-async function createtable(){
+ async function createtable(){
 await user.sync()
 }
 try{
